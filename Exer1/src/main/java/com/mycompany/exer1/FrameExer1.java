@@ -4,9 +4,11 @@
  */
 package com.mycompany.exer1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author aluno
+ * @author Gabriella Cristini Galvão
  */
 public class FrameExer1 extends javax.swing.JFrame {
 
@@ -72,22 +74,9 @@ public class FrameExer1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(lbTituloCalcular)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(84, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbAltura)
-                            .addComponent(lbSexo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfAltura, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                            .addComponent(tfSexo))
-                        .addGap(106, 106, 106))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -97,8 +86,23 @@ public class FrameExer1 extends javax.swing.JFrame {
                         .addComponent(btCalcular)
                         .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbAltura)
+                            .addComponent(lbSexo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfAltura, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                            .addComponent(tfSexo))
+                        .addGap(106, 106, 106))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(lbTituloCalcular))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(lbCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,8 +124,8 @@ public class FrameExer1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btCalcular)
                 .addGap(18, 18, 18)
-                .addComponent(lbCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addComponent(lbCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -136,8 +140,59 @@ public class FrameExer1 extends javax.swing.JFrame {
     }//GEN-LAST:event_tfAlturaActionPerformed
 
     private void btCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCalcularActionPerformed
-   String peso = tfPeso.getText();
-   String altura = tfAltura.getText();
+        try{
+            double peso = Double.parseDouble(tfPeso.getText());
+            double altura = Double.parseDouble(tfAltura.getText());
+            String sexo = tfSexo.getText();
+            double imc = peso/(altura*altura);
+
+            if(sexo.equalsIgnoreCase("F")||sexo.equalsIgnoreCase("Feminino")){
+                if(imc<19.1){
+                   String resCond = String.format("Abaixo do peso.");
+                    lbCalcular.setText(resCond);
+                }
+                if(imc==19.1||imc<25.8){
+                   String resCond = String.format("Peso normal");
+                    lbCalcular.setText(resCond);
+                }
+                if(imc==25.8||imc<27.3){
+                   String resCond = String.format("Marginalmente acima do  peso");
+                    lbCalcular.setText(resCond);
+                }
+                if(imc==27.3||imc<32.3){
+                   String resCond = String.format("Acima do peso ideal");
+                    lbCalcular.setText(resCond);
+                }
+                if(imc>32.3){
+                   String resCond = String.format("Obeso");
+                    lbCalcular.setText(resCond);
+                }
+            }else if(sexo.equalsIgnoreCase("M")||sexo.equalsIgnoreCase("Masculino")){
+                if(imc<20.7){
+                   String resCond = String.format("Abaixo do peso");
+                    lbCalcular.setText(resCond);
+                }
+                if(imc==20.7||imc<26.4){
+                   String resCond = String.format("Peso normal");
+                    lbCalcular.setText(resCond);
+                }
+                if(imc==26.4||imc<27.8){
+                   String resCond = String.format("Marginalmente acima do  peso");
+                    lbCalcular.setText(resCond);
+                }
+                if(imc==27.8||imc<31.1){
+                   String resCond = String.format("Acima do peso ideal");
+                    lbCalcular.setText(resCond);
+                }
+                if(imc>31.1){
+                   String resCond = String.format("Obeso");
+                    lbCalcular.setText(resCond);
+                } 
+            }
+        } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Por favor, insira valores válidos para peso e altura.", "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+
     }//GEN-LAST:event_btCalcularActionPerformed
 
     /**

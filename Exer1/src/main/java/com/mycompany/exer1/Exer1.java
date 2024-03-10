@@ -6,7 +6,7 @@ package com.mycompany.exer1;
 
 /**
  *
- * @author aluno
+ * @author Gabriella Cristini Galvão
  */
 public class Exer1 {
 
