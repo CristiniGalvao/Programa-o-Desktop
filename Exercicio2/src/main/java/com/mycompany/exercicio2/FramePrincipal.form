@@ -24,9 +24,44 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
-              <Component id="lbTitulo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="166" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lbImpostoDevido" alignment="1" min="-2" pref="350" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                          <Component id="lbTitulo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="tfRendaBrutaMensal" pref="220" max="32767" attributes="0"/>
+                                          <Component id="lbRendaBruta" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbDependentes" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tfDependentes" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lbTotalDeducoes" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lbTD" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="tfDeducoesTotal" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                      <Component id="lbBaseCalculo" alignment="0" min="-2" pref="340" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lbRendaBrutaAnual" alignment="1" min="-2" pref="350" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btCalcular" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -34,7 +69,30 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="lbTitulo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="275" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lbRendaBruta" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tfRendaBrutaMensal" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Component id="lbDependentes" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="tfDependentes" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbTotalDeducoes" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="lbTD" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tfDeducoesTotal" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btCalcular" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lbRendaBrutaAnual" min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lbBaseCalculo" min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lbImpostoDevido" pref="20" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,6 +105,58 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Calculo IR"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbRendaBruta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Renda Bruta Mensal"/>
+      </Properties>
+      <Events>
+        <EventHandler event="componentAdded" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="lbRendaBrutaComponentAdded"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRendaBrutaMensal">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfRendaBrutaMensalActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbDependentes">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dependentes"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfDependentes">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfDependentesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbTotalDeducoes">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Total Dedu&#xe7;&#xf5;es "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbTD">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="(sa&#xfa;de,educa&#xe7;&#xe3;o,etc)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btCalcular">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Calcular"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCalcularActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfDeducoesTotal">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfDeducoesTotalActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbRendaBrutaAnual">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbBaseCalculo">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbImpostoDevido">
     </Component>
   </SubComponents>
 </Form>
